@@ -30,6 +30,13 @@ class NfcManager {
     return channel.invokeMethod('Nfc#isAvailable').then((value) => value!);
   }
 
+  /// Checks if the device has Nfc.
+  Future<bool> deviceHasNfc() async {
+    return channel.invokeMethod('Nfc#deviceHasNfc').then(
+          (value) => value!,
+        );
+  }
+
   /// Start the session and register callbacks for tag discovery.
   ///
   /// This uses the NFCTagReaderSession (on iOS) or NfcAdapter#enableReaderMode (on Android).
